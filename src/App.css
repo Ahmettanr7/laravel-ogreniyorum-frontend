@@ -1,38 +1,381 @@
-.App {
-  text-align: center;
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+body{
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  background: #e5e5e5;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mt-20{
+margin-top: 20px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a{
+  text-decoration: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav ul li{
+  list-style: none;
+}
+.kapsar{
+  width: 100%;
+  float: left;
+}
+.ortala{
+  width: 1155px;
+  margin: 0 auto;
+  
+}
+.header-ust{
+  background: #ffffff;
+  height: 80px;
+}
+.dropdown-container{
+  position: relative;
+  float: right;
+  margin-top: 1px;
+}
+.dropdown-container button{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: max-content;
+  min-width: 160px;
+  height: 35px;
+  border-radius: 15px;
+  border: 1px solid #e5e5e5;
+  background: #ffffff;
+  float: left;
+  margin: 22px 0 0 10px;
+  position: relative;
+  cursor: pointer;
+}
+.dropdown-container button::after{
+  font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f0d7";
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  font-size: 15px;
+}
+.dropdown-container button span:nth-of-type(1){
+  color: #f5a905;
+}
+.dropdown-container button span:nth-of-type(2){
+  color: #3d3d3d;
+}
+.dropdown-container nav{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  width: 93%;
+  transition: 200ms all;
+  visibility: hidden;
+  opacity: 0;
+  margin-left:10px;
+}
+.dropdown-container nav ul li a{
+  display: block;
+  padding-top: 10px;
+  font-size: 15px;
+  color: #000;
+}
+.dropdown-container nav ul li a:hover{
+  color: #f5a905;
+}
+.dropdown-container button:hover + nav, .dropdown-container nav:hover{
+  visibility: visible;
+  opacity: 1;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.dropdown-container button:hover, .dropdown-container nav:hover .dropdown-container button{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.search-container form input{
+  float: left;
+  margin: 22px 0 0 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width:400px;
+  height: 35px;
+  border-radius: 15px;
+  border: 1px solid #e5e5e5;
+  background: #f4f5f9;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  cursor: text;
+}
+.search-container form button{
+  float: left;
+  margin-top: 24px;
+  margin-left: -37px;
+  height: 35px;
+  background: #f4f5f9;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+.isletme{
+  float: left;
+  margin: 22px 0 0 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: 35px;
+  border-radius: 15px;
+  border: 1px solid #e5e5e5;
+  background: #f4f5f9;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+.isletme:hover{
+  background: -webkit-gradient(linear, left bottom, left top, from(#e6f8fa), color-stop(50%, #ffffff));
+  background: linear-gradient(to top, #2f5e88, #ffffff 70%);
+}
+.isletme p{
+  padding: 13px 20px 13px 20px;
+}
+.isletme:nth-of-type(1){
+  color:#2f5e88;
+}
+.isletme:nth-of-type(2){
+  color: #000;
+}
+.mini-circle{
+  float: right;
+  width: 100px;
+  height: 45px;
+  border-radius: 45px;
+  border: none;
+  background: #e5e5e5;
+  color: #2f5e88;
+  margin: 16px 0 0 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.mini-circle img{
+  width: 100%;
+  height: 100%;
+  border-radius: 45px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
+}
+.mini-circle:hover{
+  background: -webkit-gradient(linear, left bottom, left top, from(#e6f8fa), color-stop(50%, #ffffff));
+  background: linear-gradient(to top, #2f5e88, #e5e5e5 20%);
+}
+.kullanici{
+  float: right;
+  margin-top: 25px;
+  cursor: default;
+}
+.kullanici span:nth-child(1){
+  display: block;
+  font-size: 15px;
+  color: #2f5e88;
+}
+.kullanici span:nth-child(2){
+  display: block;
+  font-size: 12px;
+  text-align: end;
+}
+.header-alt{
+  height: 65px;
+  background: #2f5e88;
+}
+.menu{
+  list-style: none;
+  float: left;
+}
+.menu li{
+  float: left;
+  padding: 0 20px 0 20px;
+  margin-top: -10px;
+  height: 55px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+}
+.menu a{
+  text-decoration: none;
+  color: #fff;
+}
+.menu li:hover{
+  background: #23527e;
+}
+.menu:nth-child(1){
+  padding-left: 0;
+}
+.menu:nth-child(8){
+  padding-right: 0;
+}
+.kutu-4{
+  /* width: calc(1120px/4); */
+  width: calc((100% - 30px)/4);
+  background: #ffffff;
+  float: left;
+  margin-right: 10px;
+  border-radius: 15px;
+  cursor: default;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.h-360{
+height: 360px;
+}
+.kutu-4:nth-of-type(4n+4){
+  margin-right: 0;
+}
+.kutu-4 .kutu-title{
+  width: 100%;
+  height: 50px;
+  border-radius: 15px;
+  background: #f8f8f8;
+  float: left;
+}
+.kutu-4 .kutu-title p{
+  color: #2f5e88;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.kutu-4 .kutu-icerik{
+float: left;
+height: 270px;
+width: 100%;
+}
+.kutu-4 .kutu-footer{
+  float: left;
+  height: 40px;
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+  color: #000;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.kutu-4:hover .kutu-footer:last-of-type{
+  /* background: -webkit-gradient(linear, left bottom, left top, from(#e6f8fa), color-stop(50%, #ffffff));
+  background: linear-gradient(to top, #2f5e88, #ffffff 70%); */
+  background: #f8f8f8;
+}
+.kutu-4 .kutu-footer i{
+  color: #f5a905;
+}
+.kutu-4 .kasa-kutu-icerik{
+  float: left;
+  width: 100%;
+  padding: 5px 10px 5px 10px;
+}
+.kutu-4 .kasa-kutu-icerik h6{
+  color: #2f5e88;
+}
+.kasa-hr{
+  width: calc(1000px/4);
+  float: left;
+  background-color: #2f5e88;
+  margin-top: -15px;
+}
+.kasa-kutu-icerik table tr td{
+  border-bottom:1px solid #e5e5e5;
+  width: 100%;
+  padding-right: 20px;
+  font-size: 14px;
+}
+
+.kasa-kutu-icerik table tr td:last-child{
+  float: right;
+  width: 100%;
+  text-align: right;
+}
+.kutu-12{
+  width: 100%;
+  background: #ffffff;
+  float: left;
+  border-radius: 15px;
+  cursor: default;
+  overflow: hidden;
+}
+.kutu-12 .kutu-title{
+  width: 100%;
+  height: 50px;
+  border-radius: 15px;
+  background: #f8f8f8;
+  float: left;
+  align-items: center;
+  display: flex;
+}
+.kutu-12 span{
+  float: right;
+}
+.kutu-12 .mini-circle{
+  float: right;
+}
+.kutu-12 .kutu-title:nth-child(1){
+  color: #2f5e88;
+  margin-left: 15px;
+  float: left;
+  align-items: center;
+  display: flex;
+}
+.kutu-12 .mini-circle{
+  float: right;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  border: none;
+  background: #e24c71;
+  
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  padding: 50px;
+}
+
+.card .title {
+  color: grey;
+  font-size: 18px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
   color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
 }
 
-.App-link {
-  color: #61dafb;
+.card a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card button:hover, .card a:hover {
+  opacity: 0.7;
 }
