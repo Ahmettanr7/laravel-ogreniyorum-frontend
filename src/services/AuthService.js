@@ -6,4 +6,8 @@ export default class AuthService{
         return axios.post("http://localhost:10000/api/login",user,{'Accept': 'application/json'})
     }
 
+    getUserByEmail(email){
+        return axios.get("http://localhost:10000/api/auth/getuserbyemail?email="+email)
+    }
+
     }

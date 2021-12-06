@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import ProductService from '../../services/productService';
+import React from 'react'
+import Cookies from 'universal-cookie';
 
-export default function Navi() {
+export default function Navi(props) {
 
-    const [session,setSession] = useState({});
+    const cookies = new Cookies();
+    let email = cookies.get('uec');
 
-    useEffect(()=>{
-        let productService = new ProductService()
-        productService.getSession().then(result=>setSession(result.data))
-    },[])
+function logout(){
+
+        cookies.remove('uec');
+        cookies.remove('accessToken');
+        window.location.href = '/';
+}
+
+
     return (
         <div>
             <div className="kapsar header">
@@ -25,16 +30,16 @@ export default function Navi() {
                   <button type="submit">Ara</button>
                 </form>
               </div>
-              {session.email !=null ? 
+              {email ? 
               (
                 <div className="dropdown-container">
-                <button><span><i className="fa fa-user-alt" style={{marginRight:"10px"}}></i><b style={{marginRight:"15px"}}>name </b></span></button>
+                <button><span><i className="fa fa-user-alt" style={{marginRight:"10px"}}></i><b style={{marginRight:"15px"}}>{props.user_.name} </b></span></button>
                 <nav>
                     <ul>
                         <li><a href="#"><i className="fa fa-chevron-right" style={{fontSize:"10px", marginRight:"3px"}}></i> Hesabım</a></li>
                         <li><a href="#"><i className="fa fa-chevron-right" style={{fontSize:"10px", marginRight:"3px"}}></i>Siparişlerim</a></li>
                         <li><a href="#"><i className="fa fa-chevron-right" style={{fontSize:"10px", marginRight:"3px"}}></i>Favorilerim</a></li>
-                        <li><a href="#" style={{float:"right", padding:"15px"}}>Çıkış yap</a></li>
+                        <li><a href="#" onClick={logout} style={{float:"right", padding:"15px"}}>Çıkış yap</a></li>
                     </ul>
                 </nav>
                 </div>
@@ -42,10 +47,10 @@ export default function Navi() {
               : 
               (
             <>
-            <a href="#">
+            <a href="/register">
             <div className="mini-circle">Üye Ol</div>
             </a>
-            <a href="#">
+            <a href="/login">
             <div className="mini-circle">Üye Girişi</div>
             </a>
             </>

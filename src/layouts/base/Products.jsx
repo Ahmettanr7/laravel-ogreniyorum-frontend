@@ -26,11 +26,11 @@ export default function Products() {
       {/* <p style={{textAlign:"center"}}></p> */}
       <p style={{textAlign:'center', color:'#000'}}>Etiket : {product.slug}</p>
       </div>
-      <a href="">
+      {/* <a href=""> */}
       <div className="kutu-footer">
           <i className="mdi mdi-plus"></i> Ürün Detayı
       </div>
-      </a>
+      {/* </a> */}
       </div>
     </Link>
     ))}
