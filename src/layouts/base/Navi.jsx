@@ -1,7 +1,9 @@
+import { useFormik } from 'formik';
 import React from 'react'
 import Cookies from 'universal-cookie';
 
 export default function Navi(props) {
+
 
     const cookies = new Cookies();
     let email = cookies.get('uec');
@@ -12,6 +14,15 @@ function logout(){
         cookies.remove('accessToken');
         window.location.href = '/';
 }
+
+const formik = useFormik({
+    initialValues: {
+      search: "",
+    },
+    onSubmit: (values) => {
+     window.location.href = '/urunler/'+values.search
+    },
+  });
 
 
     return (
@@ -25,10 +36,12 @@ function logout(){
       
         <div className="isletme"><p><b>Müşteri Temsilcisi : 0850 254 54 87</b></p></div>
             <div className="search-container">
-                <form id="aramaForm" method="POST">
-                  <input type="text" placeholder="Ürünlerde Ara..." name="arama" id="arama"></input>
+
+                <form onSubmit={formik.handleSubmit}>
+                  <input  onChange={formik.handleChange} onBlur={formik.handleBlur} type="text" placeholder="Ürünlerde Ara..." name="search" id="arama"></input>
                   <button type="submit">Ara</button>
                 </form>
+
               </div>
               {email ? 
               (

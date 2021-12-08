@@ -36,7 +36,31 @@ export default function Login() {
   });
 
   return (
-    <div>
+    <div className="kapsar">
+      <div className="loginForm">
+        <h1>Laravel Öğreniyorum</h1>
+        {formik.errors.email && formik.touched.email ?
+        (
+        <div className="alert">
+           {formik.errors.email && formik.touched.email && (
+          <span>{formik.errors.email}</span>)}
+        </div>
+        ):
+        (
+        <div></div>
+        )
+        }
+                {formik.errors.password && formik.touched.password ?
+        (
+        <div className="alert">
+           {formik.errors.password && formik.touched.password && (
+          <span>{formik.errors.password}</span>)}
+        </div>
+        ):
+        (
+        <div></div>
+        )
+        }
       <form onSubmit={formik.handleSubmit}>
         <input
           type="email"
@@ -44,11 +68,9 @@ export default function Login() {
           name="email"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-        />{" "}
+        />
         <br />
-        {formik.errors.email && formik.touched.email && (
-          <span style={{ color: "red" }}>{formik.errors.email}</span>
-        )}
+        
         <br />
         <input
           type="password"
@@ -56,14 +78,12 @@ export default function Login() {
           name="password"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-        />{" "}
+        />
         <br />
-        {formik.errors.password && formik.touched.password && (
-          <span>{formik.errors.password}</span>
-        )}
         <br />
         <input type="submit" value="Giriş Yap" />
       </form>
+      </div>
     </div>
   );
 }
