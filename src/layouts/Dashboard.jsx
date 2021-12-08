@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
-import Products from "./Products";
-import Navi from "./Navi";
-import Product from "./Product";
-import Login from "./Login";
-import AuthService from "../../services/AuthService";
+import Products from "./Product/Products";
+import Navi from "./base/Navi";
+import Product from "./Product/Product";
+import Login from "./base/Login";
+import AuthService from "../services/AuthService";
 import Cookies from "universal-cookie";
-import EditProduct from "./EditProduct";
-import AddProduct from "./AddProduct";
-import Search from "./Search";
+import EditProduct from "./Product/EditProduct";
+import AddProduct from "./Product/AddProduct";
+import Search from "./base/Search";
+//import ChartReport from "./base/ChartReport";
 
 export default function Dashboard() {
   //Kullanıcı bilgileri
@@ -26,24 +27,17 @@ export default function Dashboard() {
     <div>
       <Route exact path="/">
         <Navi user_={user} />
-      </Route>
-
-      <Route exact path="/">
+        {/* <ChartReport/> */}
         <Products />
       </Route>
 
       <Route exact path="/urun/:id">
         <Navi user_={user} />
-      </Route>
-
-      <Route exact path="/urun/:id">
         <Product user_={user} />
       </Route>
 
       <Route exact path="/urunler/:search">
         <Navi user_={user} />
-      </Route>
-      <Route exact path="/urunler/:search">
         <Search  />
       </Route>
 
@@ -56,6 +50,7 @@ export default function Dashboard() {
         ),
         (
           <Route exact path="/urun-ekle">
+            <Navi user_={user}/>
             <AddProduct />
           </Route>
         ))

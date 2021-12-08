@@ -1,9 +1,9 @@
 
 import './App.css';
-import Dashboard from './layouts/base/Dashboard';
+import Dashboard from './layouts/Dashboard';
 import ReactLoading from 'react-loading';
 import { useState } from 'react';
-import $ from 'jquery'; 
+import $ from 'jquery';
 function App() {
 
   const Example = ({ type, color }) => (
@@ -11,13 +11,12 @@ function App() {
 );
 
 const [loading, setLoading] = useState(false);
-const load = () => {
+
+$(document).ready(function(){
   setInterval(() => {
     setLoading(true)
   }, 750);
-}
-
-load();
+});
   return (
   <>
     {!loading 

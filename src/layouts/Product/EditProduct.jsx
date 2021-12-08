@@ -31,7 +31,7 @@ export default function EditProduct() {
     validationSchema: editProductSchema,
     onSubmit: (values) => {
       productsService.edit(values).then((result) =>
-        result.data.status_code === 201
+        result.data.status_code === 200
           ? (alert(result.data.message),
             window.location.href = '/urun/'+id)
           : alert(result.data.message)

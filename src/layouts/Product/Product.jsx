@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import NumberFormat from 'react-number-format';
 import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
 import ProductService from '../../services/productService';
@@ -44,12 +45,12 @@ export default function Product(props) {
   <tr>
     <td> {product.name} </td>
     <td> {product.description} </td>
-    <td> {product.price} </td>
-    <td><button onClick={() => {
-      if(window.confirm(product.name + ' silinecek ?')){delete_(id)}}}>Sil</button></td>
-    <Link  to={`/urun-duzenle/${product.id}`}>
-    {props.user_.email != null ? ( <td><button>Düzenle</button></td>) : (<td></td>)}
+    <td><NumberFormat value={product.price} displayType={'text'} thousandSeparator={true} suffix={' ₺'} /> </td>
+    {props.user_.email != null ? (  <td><button onClick={() => {
+      if(window.confirm(product.name + ' silinecek ?')){delete_(id)}}}>Sil</button></td>) : (<></>)}
    
+    <Link  to={`/urun-duzenle/${product.id}`}>
+    {props.user_.email != null ? ( <td><button>Düzenle</button></td>) : (<></>)}
     </Link>
   </tr>
   </tbody>
