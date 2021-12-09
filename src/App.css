@@ -463,3 +463,6 @@ border: none;
   margin: 0 auto;
   margin-top: 20px;
 }
+.dtable table{
+  color: red !important;
+}

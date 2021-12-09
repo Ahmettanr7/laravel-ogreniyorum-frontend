@@ -9,7 +9,8 @@ import Cookies from "universal-cookie";
 import EditProduct from "./Product/EditProduct";
 import AddProduct from "./Product/AddProduct";
 import Search from "./base/Search";
-//import ChartReport from "./base/ChartReport";
+import ChartReport from "./base/ChartReport";
+import DataTableExample from "./base/DataTableExample";
 
 export default function Dashboard() {
   //Kullanıcı bilgileri
@@ -27,7 +28,8 @@ export default function Dashboard() {
     <div>
       <Route exact path="/">
         <Navi user_={user} />
-        {/* <ChartReport/> */}
+        <DataTableExample/>
+        <ChartReport/>
         <Products />
       </Route>
 
